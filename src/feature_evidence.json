@@ -1,0 +1,113 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-3d-floating-island-environment-using-three-js-and-react-three-fiber-with-a-skybox-background-starting-island-platform-made-of-voxel-style-blocks-and-void-space-below",
+      "featureTitle": "Create a 3D floating island environment using Three.js and React Three Fiber with a skybox background, starting island platform made of voxel-style blocks, and void space below",
+      "files": [
+        "frontend/src/components/game/GameCanvas.tsx",
+        "frontend/src/components/game/Island.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-first-person-or-third-person-player-character-controller-with-wasd-movement-mouse-look-controls-jump-ability-and-collision-detection-with-blocks",
+      "featureTitle": "Implement first-person or third-person player character controller with WASD movement, mouse look controls, jump ability, and collision detection with blocks",
+      "files": [
+        "frontend/src/components/game/PlayerController.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-resource-gathering-system-where-breaking-blocks-adds-them-to-player-inventory-including-different-block-types-dirt-stone-wood-etc-with-distinct-textures",
+      "featureTitle": "Implement resource gathering system where breaking blocks adds them to player inventory, including different block types (dirt, stone, wood, etc.) with distinct textures",
+      "files": [],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-basic-crafting-system-with-crafting-interface-where-players-can-combine-resources-to-create-new-items-or-block-types-using-recipe-patterns",
+      "featureTitle": "Create basic crafting system with crafting interface where players can combine resources to create new items or block types using recipe patterns",
+      "files": [],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-player-authentication-using-internet-identity-so-each-player-has-a-persistent-island-and-inventory",
+      "featureTitle": "Add player authentication using Internet Identity so each player has a persistent island and inventory",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/auth/LoginScreen.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-and-implement-a-vibrant-playful-visual-theme-with-bright-saturated-colors-rounded-block-edges-soft-voxel-aesthetic-cheerful-sky-gradients-and-clean-ui-inspired-by-casual-mobile-games-like-blockman-go-avoiding-blue-and-purple-color-schemes",
+      "featureTitle": "Design and implement a vibrant, playful visual theme with bright saturated colors, rounded block edges (soft voxel aesthetic), cheerful sky gradients, and clean UI inspired by casual mobile games like Blockman Go, avoiding blue and purple color schemes",
+      "files": [
+        "frontend/src/components/layout/GameLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

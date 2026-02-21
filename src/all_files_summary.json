@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Motoko actor defining game data types (Player, Block, World, Inventory) and backend functions for managing player state, world blocks, and inventory operations with position-based block comparison and item management.",
+  "feature_evidence.json": "Feature evidence report mapping implemented features (3D environment, player controller, authentication, visual theme) to their corresponding source files and test IDs with confidence levels.",
+  "frontend-file-summaries.txt": "JSON object containing one-sentence summaries of all frontend TypeScript/TSX files describing their purpose and functionality in the game application.",
+  "frontend/index.css": "Tailwind CSS configuration with custom CSS variables defining a vibrant OKLCH color system for light and dark themes with warm oranges, yellows, and corals.",
+  "frontend/index.html": "HTML entry point for the Skyblock Game application with root div and module script reference to main.tsx.",
+  "frontend/src/App.tsx": "Root React component managing authentication state with Internet Identity, conditionally rendering LoginScreen or GameLayout with theme provider and toast notifications.",
+  "frontend/src/components/auth/LoginScreen.tsx": "Vibrant login screen with animated floating blocks, game branding, Internet Identity authentication button, and feature highlights using bright gradient backgrounds.",
+  "frontend/src/components/game/GameCanvas.tsx": "React Three Fiber canvas setup with lighting, sky, island, player controller, and pointer lock controls for the 3D game environment.",
+  "frontend/src/components/game/Island.tsx": "Instanced mesh renderer for voxel blocks with vibrant color mapping per block type, loading world data from backend or generating default starting island.",
+  "frontend/src/components/game/PlayerController.tsx": "Implements first-person player movement with WASD controls, jumping, gravity, and ground collision detection using React Three Fiber hooks.",
+  "frontend/src/components/layout/CraftingMenu.tsx": "Displays a crafting UI with recipe selection showing inputs/outputs for converting blocks (logs to planks, stone to cobblestone, etc.).",
+  "frontend/src/components/layout/GameHUD.tsx": "Renders the in-game heads-up display with health, selected block indicator, action buttons for inventory/crafting, controls help, and crosshair.",
+  "frontend/src/components/layout/GameLayout.tsx": "Main game layout component that orchestrates the 3D canvas, HUD, inventory panel, and crafting menu with state management for UI toggles and block selection.",
+  "frontend/src/components/layout/Inventory.tsx": "Displays player inventory in a grid with block icons, quantities, and selection state; fetches inventory data from backend using React Query.",
+  "frontend/src/hooks/useActor.ts": "Creates and manages the backend actor instance based on Internet Identity authentication state, invalidating dependent queries when identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides React context and hooks for Internet Identity authentication with login/logout functionality and status tracking.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for fetching world blocks and inventory data from the backend actor using the authenticated principal.",
+  "frontend/src/index.css": "Defines Tailwind CSS configuration with a vibrant playful color palette (orange, yellow, coral, red) for both light and dark modes, custom scrollbar styling, game-specific component classes, and float animation keyframes.",
+  "frontend/src/main.tsx": "Application entry point that sets up React root with QueryClient provider for data fetching and InternetIdentityProvider for authentication, then renders the main App component.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the default theme with custom OKLCH color system, border radius variables, custom shadows, Inter font family, and accordion/float animations using typography, container queries, and animate plugins.",
+  "project_state.json": "Project state file documenting a Blockman Go-style Skyblock voxel game with existing features including 3D floating islands, player controller, resource gathering, crafting system, Internet Identity authentication, and vibrant visual theme."
+}

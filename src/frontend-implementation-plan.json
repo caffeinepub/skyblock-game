@@ -1,0 +1,241 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Block Skylands - 3D Voxel Survival Game Frontend",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create 3D floating island environment with skybox, voxel blocks, and void space",
+      "acceptanceCriteria": [
+        "3D scene renders with skybox and floating island visible",
+        "Island is composed of block-based terrain (voxel style)",
+        "Camera can view the island from multiple angles",
+        "Void/empty space is visible below the island"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/game/GameCanvas.tsx",
+          "operation": "create",
+          "description": "Create main 3D game canvas component using React Three Fiber. Set up Canvas with camera, lighting, and scene configuration. Reference the generated skybox texture at frontend/public/assets/generated/skybox.dim_2048x2048.png for background. Verify component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/game/Island.tsx",
+          "operation": "create",
+          "description": "Create floating island component that renders voxel-style blocks in a 3D grid. Load initial block composition from backend using getWorldBlocks method. Use InstancedMesh for performance with multiple blocks. Reference the generated block atlas at frontend/public/assets/generated/block-atlas.dim_512x512.png for block textures."
+        },
+        {
+          "path": "frontend/src/components/game/Skybox.tsx",
+          "operation": "create",
+          "description": "Create skybox component using Three.js sphere geometry with inside-facing material. Load the generated skybox texture from frontend/public/assets/generated/skybox.dim_2048x2048.png and apply it to create the cheerful sky gradient background."
+        },
+        {
+          "path": "frontend/src/components/game/Block.tsx",
+          "operation": "create",
+          "description": "Create individual block component with BoxGeometry and texture mapping from block atlas. Apply slightly rounded edges using custom geometry or shader for soft voxel aesthetic. Support all BlockType variants from backend interface."
+        },
+        {
+          "path": "frontend/src/hooks/useWorldState.ts",
+          "operation": "create",
+          "description": "Create hook to fetch and manage world block state from backend. Call getWorldBlocks with authenticated principal. Handle loading states and cache block data. Update when blocks are placed or broken."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement player character controller with WASD movement, mouse look, jump, and collision detection",
+      "acceptanceCriteria": [
+        "Player can move in all directions using WASD keys",
+        "Mouse controls camera/look direction",
+        "Player can jump with spacebar",
+        "Player cannot fall through blocks or walk through solid blocks",
+        "Player falls into void if walking off island edge"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/game/PlayerController.tsx",
+          "operation": "create",
+          "description": "Create first-person player controller component using React Three Fiber. Implement WASD keyboard input for movement, mouse input for camera rotation, and spacebar for jumping. Integrate with useFrame hook for physics updates and collision detection against block positions."
+        },
+        {
+          "path": "frontend/src/hooks/usePlayerMovement.ts",
+          "operation": "create",
+          "description": "Create hook managing player movement state, velocity, and position. Handle keyboard input events, apply gravity, and calculate collision with blocks from world state. Persist player position to backend using updateBlock or custom method."
+        },
+        {
+          "path": "frontend/src/hooks/useMouseLook.ts",
+          "operation": "create",
+          "description": "Create hook for mouse look controls. Capture mouse movement events, update camera rotation (yaw/pitch), and implement pointer lock for immersive first-person view."
+        },
+        {
+          "path": "frontend/src/utils/physics.ts",
+          "operation": "create",
+          "description": "Create physics utility functions for collision detection. Implement AABB collision between player bounding box and block positions. Include gravity simulation and void detection (falling below island)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create block placement and breaking mechanics with visual feedback and highlighting",
+      "acceptanceCriteria": [
+        "Left-clicking on a block removes it from the world",
+        "Right-clicking places a block from inventory at target position",
+        "Targeted block is highlighted/outlined when hovering",
+        "Block breaking has visual breaking animation or feedback",
+        "Placed blocks snap to grid positions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useBlockInteraction.ts",
+          "operation": "create",
+          "description": "Create hook for block interaction logic. Implement raycasting to detect targeted block from camera. Handle left-click to break blocks (call backend updateBlock to remove) and right-click to place blocks (call backend updateBlock to add). Validate placement against inventory state from getInventory."
+        },
+        {
+          "path": "frontend/src/components/game/BlockHighlight.tsx",
+          "operation": "create",
+          "description": "Create block highlight component showing outline around targeted block. Use EdgesGeometry or custom shader for outline effect. Position highlight at raycast intersection point snapped to grid."
+        },
+        {
+          "path": "frontend/src/components/game/BlockBreakingEffect.tsx",
+          "operation": "create",
+          "description": "Create visual feedback component for block breaking. Display progressive breaking animation or particle effect. Trigger on block break event and remove when complete."
+        },
+        {
+          "path": "frontend/src/utils/raycasting.ts",
+          "operation": "create",
+          "description": "Create raycasting utility functions to detect block intersections from camera position and direction. Calculate grid-snapped positions for block placement adjacent to targeted block face."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement resource gathering system with inventory management for different block types",
+      "acceptanceCriteria": [
+        "Breaking blocks adds resources to player inventory",
+        "Multiple block types exist with different textures (dirt, stone, wood minimum)",
+        "Inventory displays collected resources with quantities",
+        "Backend stores player inventory state",
+        "Inventory persists across sessions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ui/Inventory.tsx",
+          "operation": "create",
+          "description": "Create inventory UI component displaying collected block types and quantities. Fetch inventory data using getInventory backend method. Show block icons from atlas and quantity numbers. Allow selection of block type for placement. Verify component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useInventory.ts",
+          "operation": "create",
+          "description": "Create hook managing inventory state from backend. Call getInventory with authenticated principal. Handle optimistic updates when blocks are broken or placed. Sync with backend after each interaction."
+        },
+        {
+          "path": "frontend/src/components/game/BlockTextures.tsx",
+          "operation": "create",
+          "description": "Create block texture mapping component that loads the generated block atlas from frontend/public/assets/generated/block-atlas.dim_512x512.png and maps texture coordinates to each BlockType (DIRT, STONE, WOOD, GRASS, etc.). Provide texture lookup function for rendering blocks."
+        },
+        {
+          "path": "frontend/src/types/inventory.ts",
+          "operation": "create",
+          "description": "Create TypeScript types and interfaces for inventory management extending InventoryView from backend interface. Include selected block type state and inventory UI helpers."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create crafting system with UI for combining resources using recipe patterns",
+      "acceptanceCriteria": [
+        "Crafting UI can be opened/closed",
+        "Players can view available recipes",
+        "Placing resources in crafting grid creates items when pattern matches",
+        "Crafted items are added to inventory",
+        "Backend validates crafting recipes and updates inventory"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ui/CraftingMenu.tsx",
+          "operation": "create",
+          "description": "Create crafting menu component with grid interface for placing resources. Display available recipes and crafting result preview. Toggle visibility with keyboard shortcut. Submit crafting requests to backend for validation and inventory update. Verify component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useCrafting.ts",
+          "operation": "create",
+          "description": "Create hook managing crafting state and recipe validation. Define recipe patterns (e.g., 4 wood logs -> planks). Send crafting requests to backend with recipe pattern. Handle success/failure responses and update inventory."
+        },
+        {
+          "path": "frontend/src/components/ui/CraftingGrid.tsx",
+          "operation": "create",
+          "description": "Create crafting grid component allowing drag-and-drop or click placement of inventory items into pattern slots. Display 3x3 crafting grid with result slot. Clear grid after successful craft."
+        },
+        {
+          "path": "frontend/src/types/recipes.ts",
+          "operation": "create",
+          "description": "Create recipe type definitions mapping input patterns to output block types. Include recipe validation logic and pattern matching utilities."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add player authentication using Internet Identity for persistent islands and inventory",
+      "acceptanceCriteria": [
+        "Players can authenticate with Internet Identity",
+        "Authenticated players load their saved island and inventory",
+        "New players start with a fresh default island",
+        "Player identity is used to isolate world data"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/auth/AuthProvider.tsx",
+          "operation": "create",
+          "description": "Create authentication provider component wrapping the game. Integrate Internet Identity for user authentication. Provide authentication state and principal to child components. Handle login/logout actions. Verify component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create authentication hook providing principal, login, logout, and authentication status. Call getPlayer backend method with authenticated principal to load player data. Handle unauthenticated state gracefully."
+        },
+        {
+          "path": "frontend/src/components/auth/LoginScreen.tsx",
+          "operation": "create",
+          "description": "Create login screen component displayed before game loads. Show Internet Identity login button and game branding. Display loading state while authenticating. Verify component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap application with AuthProvider. Show LoginScreen when unauthenticated. Load GameCanvas and UI components only after successful authentication. Pass authenticated principal to all backend API calls."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Design vibrant playful visual theme with bright colors, soft voxel aesthetic, and casual mobile game UI",
+      "acceptanceCriteria": [
+        "Color palette uses bright, saturated colors (avoiding blue/purple)",
+        "Blocks have slightly rounded edges for softer voxel look",
+        "Sky uses cheerful gradient backgrounds",
+        "UI elements follow casual mobile game design patterns",
+        "Overall aesthetic is playful and approachable"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global CSS custom properties defining bright, saturated color palette (oranges, yellows, greens, reds) avoiding blue/purple. Style UI elements with rounded corners, playful shadows, and casual game aesthetics. Override default shadcn/ui theme colors to match vibrant palette."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom color palette for bright, cheerful colors. Add utility classes for rounded elements and playful spacing. Configure design tokens matching casual mobile game style."
+        },
+        {
+          "path": "frontend/src/components/ui/GameHUD.tsx",
+          "operation": "create",
+          "description": "Create heads-up display component with playful UI styling. Include health/status indicators, quick inventory bar, and controls hints. Use bright colors and rounded shapes. Position elements following casual game HUD patterns. Verify component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/GameLayout.tsx",
+          "operation": "create",
+          "description": "Create game layout component wrapping GameCanvas with UI overlays. Position Inventory, CraftingMenu, and GameHUD components. Handle UI toggle states and keyboard shortcuts. Apply consistent playful styling across all UI panels."
+        }
+      ]
+    }
+  ]
+}

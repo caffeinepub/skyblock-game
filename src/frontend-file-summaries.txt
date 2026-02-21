@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main application component that handles authentication state and renders either the login screen or game layout with theme provider and toast notifications.",
+  "frontend/src/components/auth/LoginScreen.tsx": "Vibrant login screen with animated background elements, game branding, and Internet Identity authentication button featuring playful design with bright gradients.",
+  "frontend/src/components/layout/GameLayout.tsx": "Game layout wrapper that manages the 3D canvas, HUD overlay, inventory panel, and crafting menu with state management for UI toggles and block selection.",
+  "frontend/src/components/game/GameCanvas.tsx": "React Three Fiber canvas component that sets up the 3D scene with lighting, sky, island, player controller, and pointer lock controls.",
+  "frontend/src/components/game/Island.tsx": "Instanced mesh component that renders the voxel island blocks with vibrant colors, loading world data from backend or generating a default starting island with proper Block type annotation.",
+  "frontend/src/components/game/PlayerController.tsx": "First-person player controller with WASD movement, jumping, gravity physics, and basic ground collision detection.",
+  "frontend/src/components/ui/GameHUD.tsx": "Heads-up display overlay showing health, selected block, action buttons for inventory/crafting, control hints, and crosshair with playful styling.",
+  "frontend/src/components/ui/Inventory.tsx": "Inventory panel displaying collected block types with quantities, selection functionality, and vibrant card-based grid layout.",
+  "frontend/src/components/ui/CraftingMenu.tsx": "Crafting interface with recipe list, detailed recipe view showing required materials and outputs, and craft button with playful gradient styling.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching world blocks and inventory data from the backend with proper authentication and error handling.",
+  "frontend/src/index.css": "Global styles with vibrant OKLCH color system featuring warm oranges, yellows, and corals, custom scrollbar styling, and game-specific component classes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with playful design tokens including larger border radii, enhanced shadows, Inter font family, and custom animations.",
+  "frontend/src/components/layout/GameHUD.tsx": "Heads-up display overlay showing health, selected block, action buttons for inventory/crafting, control hints, and crosshair with playful styling.",
+  "frontend/src/components/layout/Inventory.tsx": "Inventory panel displaying collected block types with quantities, selection functionality, and vibrant card-based grid layout.",
+  "frontend/src/components/layout/CraftingMenu.tsx": "Crafting interface with recipe list, detailed recipe view showing required materials and outputs, and craft button with playful gradient styling."
+}

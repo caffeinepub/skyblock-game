@@ -1,0 +1,164 @@
+{
+  "kind": "build_request",
+  "title": "Create Blockman Go-style Skyblock survival game",
+  "projectName": "Block Skylands",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a 3D floating island environment using Three.js and React Three Fiber with a skybox background, starting island platform made of voxel-style blocks, and void space below",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "3D scene renders with skybox and floating island visible",
+        "Island is composed of block-based terrain (voxel style)",
+        "Camera can view the island from multiple angles",
+        "Void/empty space is visible below the island"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement first-person or third-person player character controller with WASD movement, mouse look controls, jump ability, and collision detection with blocks",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Player can move in all directions using WASD keys",
+        "Mouse controls camera/look direction",
+        "Player can jump with spacebar",
+        "Player cannot fall through blocks or walk through solid blocks",
+        "Player falls into void if walking off island edge"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create block placement and breaking mechanics where players can left-click to break blocks and right-click to place blocks from inventory, with visual feedback and block selection highlighting",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Left-clicking on a block removes it from the world",
+        "Right-clicking places a block from inventory at target position",
+        "Targeted block is highlighted/outlined when hovering",
+        "Block breaking has visual breaking animation or feedback",
+        "Placed blocks snap to grid positions"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement resource gathering system where breaking blocks adds them to player inventory, including different block types (dirt, stone, wood, etc.) with distinct textures",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Breaking blocks adds resources to player inventory",
+        "Multiple block types exist with different textures (dirt, stone, wood minimum)",
+        "Inventory displays collected resources with quantities",
+        "Backend stores player inventory state",
+        "Inventory persists across sessions"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create basic crafting system with crafting interface where players can combine resources to create new items or block types using recipe patterns",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Crafting UI can be opened/closed",
+        "Players can view available recipes",
+        "Placing resources in crafting grid creates items when pattern matches",
+        "Crafted items are added to inventory",
+        "Backend validates crafting recipes and updates inventory"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Store player world state in backend including island block composition, player position, inventory contents, and support multiple player islands",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend persists block placement/removal changes",
+        "Player position is saved",
+        "Inventory state is stored in backend",
+        "Each authenticated player has their own island instance",
+        "World state loads when player returns"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add player authentication using Internet Identity so each player has a persistent island and inventory",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Players can authenticate with Internet Identity",
+        "Authenticated players load their saved island and inventory",
+        "New players start with a fresh default island",
+        "Player identity is used to isolate world data"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Design and implement a vibrant, playful visual theme with bright saturated colors, rounded block edges (soft voxel aesthetic), cheerful sky gradients, and clean UI inspired by casual mobile games like Blockman Go, avoiding blue and purple color schemes",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color palette uses bright, saturated colors (avoiding blue/purple)",
+        "Blocks have slightly rounded edges for softer voxel look",
+        "Sky uses cheerful gradient backgrounds",
+        "UI elements follow casual mobile game design patterns",
+        "Overall aesthetic is playful and approachable"
+      ]
+    }
+  ],
+  "constraints": [
+    "Must use Three.js with React Three Fiber for 3D rendering",
+    "Must use Motoko for backend logic in single-actor architecture",
+    "Must use Internet Identity for authentication",
+    "Must use React with TypeScript and Tailwind CSS for UI",
+    "Cannot implement real-time multiplayer features"
+  ],
+  "nonGoals": [
+    "Multiplayer or real-time collaborative building",
+    "Advanced mob AI or enemy systems",
+    "Complex redstone-like logic systems",
+    "Texture pack customization",
+    "Advanced world generation algorithms",
+    "Mobile touch controls optimization"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Skybox texture with bright cheerful sky gradient suitable for voxel game (skybox.dim_2048x2048.png)",
+      "Block texture atlas showing dirt, stone, wood, and grass block faces in vibrant playful style (block-atlas.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}

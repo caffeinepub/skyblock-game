@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A Blockman Go-style Skyblock game where players survive and build on floating islands",
+  "architectural_notes": [
+    "Block-based voxel game similar to Blockman Go's Skyblock mode",
+    "3D environment with floating islands",
+    "Survival and building gameplay mechanics"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Skybox texture with bright cheerful sky gradient suitable for voxel game (skybox.dim_2048x2048.png)\n- Block texture atlas showing dirt, stone, wood, and grass block faces in vibrant playful style (block-atlas.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-3d-floating-island-environment-using-three-js-and-react-three-fiber-with-a-skybox-background-starting-island-platform-made-of-voxel-style-blocks-and-void-space-below",
+      "title": "Create a 3D floating island environment using Three.js and React Three Fiber with a skybox background, starting island platform made of voxel-style blocks, and void space below",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-first-person-or-third-person-player-character-controller-with-wasd-movement-mouse-look-controls-jump-ability-and-collision-detection-with-blocks",
+      "title": "Implement first-person or third-person player character controller with WASD movement, mouse look controls, jump ability, and collision detection with blocks",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-resource-gathering-system-where-breaking-blocks-adds-them-to-player-inventory-including-different-block-types-dirt-stone-wood-etc-with-distinct-textures",
+      "title": "Implement resource gathering system where breaking blocks adds them to player inventory, including different block types (dirt, stone, wood, etc.) with distinct textures",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-basic-crafting-system-with-crafting-interface-where-players-can-combine-resources-to-create-new-items-or-block-types-using-recipe-patterns",
+      "title": "Create basic crafting system with crafting interface where players can combine resources to create new items or block types using recipe patterns",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-player-authentication-using-internet-identity-so-each-player-has-a-persistent-island-and-inventory",
+      "title": "Add player authentication using Internet Identity so each player has a persistent island and inventory",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-and-implement-a-vibrant-playful-visual-theme-with-bright-saturated-colors-rounded-block-edges-soft-voxel-aesthetic-cheerful-sky-gradients-and-clean-ui-inspired-by-casual-mobile-games-like-blockman-go-avoiding-blue-and-purple-color-schemes",
+      "title": "Design and implement a vibrant, playful visual theme with bright saturated colors, rounded block edges (soft voxel aesthetic), cheerful sky gradients, and clean UI inspired by casual mobile games like Blockman Go, avoiding blue and purple color schemes",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create floating island/skyblock environment",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement block-based building mechanics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add resource gathering and crafting system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create player character with movement controls",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create block placement and breaking mechanics where players can left-click to break blocks and right-click to place blocks from inventory, with visual feedback and block selection highlighting",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Store player world state in backend including island block composition, player position, inventory contents, and support multiple player islands",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "3d",
+  "projectName": "Skyblock Game",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
